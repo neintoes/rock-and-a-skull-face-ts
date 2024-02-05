@@ -1,0 +1,36 @@
+{
+    "name": "Rock-and-a-Skull-Face-ts",
+    "description": "",
+    "dependencies": {
+        "device": "*",
+        "Timers": "github:microsoft/arcade-timers#v1.1.0",
+        "arcade-sprite-util": "github:jwunderl/arcade-sprite-util#v0.4.1"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md",
+        "assets.json",
+        "images.g.jres",
+        "images.g.ts",
+        "tilemap.g.jres",
+        "tilemap.g.ts",
+        "gameManager.ts",
+        "playerSprite.ts",
+        "skull.ts",
+        "rocks.ts",
+        "projectiles.ts",
+        "overlapManager.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "target": "1.12.47",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "tsprj"
+}
