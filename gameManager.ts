@@ -11,7 +11,7 @@ class GameManager {
         this.setupLevel();
         this.initialisePlayer();
         this.enemySkull = new Skull();
-        new OverlapManager();
+        new EventHandlerManager();
         // GH1
         this.onUpdates();
         // end GH1

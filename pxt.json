@@ -20,7 +20,7 @@
         "skull.ts",
         "rocks.ts",
         "projectiles.ts",
-        "overlapManager.ts"
+        "eventHandlerManager.ts"
     ],
     "testFiles": [
         "test.ts"
