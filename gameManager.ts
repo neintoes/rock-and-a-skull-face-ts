@@ -12,6 +12,9 @@ class GameManager {
         this.initialisePlayer();
         this.enemySkull = new Skull();
         new OverlapManager();
+        // GH1
+        this.onUpdates();
+        // end GH1
         timer.after(randint(3500, 5000), () => {
             this.combatCycle();
         });
@@ -40,4 +43,13 @@ class GameManager {
             this.combatCycle();
         });
     }
+
+    // GH1
+    private onUpdates(): void {
+        game.onUpdate(() => {
+            this.playerSprite.movement();
+            this.playerSprite.moveCheck();
+        });
+    }
+    // end GH1
 }
