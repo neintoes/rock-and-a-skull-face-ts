@@ -5,7 +5,7 @@ namespace SpriteKind {
 
 class GameManager {
     private enemySkull: Skull;
-    public playerSprite: PlayerSprite;
+    private playerSprite: PlayerSprite;
 
     constructor() {
         this.setupLevel();
