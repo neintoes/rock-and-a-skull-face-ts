@@ -7,7 +7,16 @@ class EventHandlerManager {
     private initialiseOverlapEvents() {
         // Player <> Projectile => gameOver
         sprites.onOverlap(SpriteKind.Player, SpriteKind.EnemyProjectile, (playerSprite: PlayerSprite, proj: EnemyProjectile) => {
-            game.over(false);
+            // GH2
+            if (playerSprite.isBlocking) {
+                let skull = sprites.allOfKind(SpriteKind.Enemy)[0];
+                proj.setKind(SpriteKind.Projectile);
+                let angle = spriteutils.angleFrom(playerSprite, skull);
+                spriteutils.setVelocityAtAngle(proj, angle, 40);
+            } else {
+                game.over(false);
+            }
+            // end GH2
         });
         // Projectile <> Rock => blockProjectile
         sprites.onOverlap(SpriteKind.EnemyProjectile, SpriteKind.Rock, (proj: EnemyProjectile, rock: Rock) => {
@@ -27,6 +36,13 @@ class EventHandlerManager {
         sprites.onOverlap(SpriteKind.Rock, SpriteKind.Rock, (rock: Rock, otherRock: Rock) => {
             sprites.allOfKind(SpriteKind.Rock).pop().destroy();
         });
+        // GH2
+        // Boss <> Projectile => bossHit
+        sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Projectile, (skull: Skull, proj: Sprite) => {
+            skull.hit();
+            proj.destroy();
+        })
+        // end GH2
     }
 
     private initialiseDestroyEvents(): void {
